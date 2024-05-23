@@ -1,7 +1,10 @@
 package org.libreapps.projetqcm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
+    private Button buttonMode1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Param.getInstance().setListQizz(getListData());
+        buttonMode1 =  (Button)findViewById(R.id.Mode1);
+        buttonMode1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /*
         final ListView listView = (ListView) findViewById(R.id.listView);
@@ -74,4 +86,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+
+
 }
