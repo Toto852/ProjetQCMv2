@@ -1,6 +1,5 @@
 package org.libreapps.projetqcm;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,15 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class BienJouerActivity extends AppCompatActivity {
-    private Button buttonMenu;
+public class BonneReponse2Activity extends AppCompatActivity {
+    private Button buttonSuivant;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_bien_jouer);
+        setContentView(R.layout.activity_bonne_reponse);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -28,13 +26,14 @@ public class BienJouerActivity extends AppCompatActivity {
         });
 
         // Initialize the button
-        buttonMenu = findViewById(R.id.buttonMenu);
-        buttonMenu.setOnClickListener(new View.OnClickListener() {
+        buttonSuivant = findViewById(R.id.buttonSuivant);
+        buttonSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start the QuestionActivity
-                Intent intent = new Intent(BienJouerActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent resultIntent = new Intent();
+                setResult(RESULT_OK, resultIntent);
+                finish();
             }
         });
     }

@@ -1,5 +1,6 @@
 package org.libreapps.projetqcm;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,9 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonMode1;
+    private Button buttonMode2;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
                 startActivity(intent);
             }
+            });
+
+            buttonMode2 =  (Button)findViewById(R.id.buttonMode2);
+
+            buttonMode2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, SurvieActivity.class);
+                    startActivity(intent);
+                }
+
         });
 
         /*

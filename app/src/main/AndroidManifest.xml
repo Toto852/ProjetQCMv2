@@ -16,6 +16,12 @@
         android:theme="@style/Theme.ProjetQCM"
         tools:targetApi="31">
         <activity
+            android:name=".BonneReponse2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".SurvieActivity"
+            android:exported="false" />
+        <activity
             android:name=".BienJouerActivity"
             android:exported="false"
             android:theme="@style/Theme.ProjetQCM" />

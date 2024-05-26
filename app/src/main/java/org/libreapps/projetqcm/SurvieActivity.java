@@ -15,14 +15,14 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class QuestionActivity extends AppCompatActivity {
+public class SurvieActivity extends AppCompatActivity {
 
     private Quizz randomQuiz;
     private TextView questionTextView;
     private Button reponse1Button, reponse2Button, reponse3Button, reponse4Button;
     private ArrayList<Quizz> quizzList;
     private Set<Integer> questionsPosees = new HashSet<>();
-    private int maxQuestions = 10; // Nombre maximum de questions à poser
+    private int maxQuestions = 20; // Nombre maximum de questions à poser
 
     private int counter = 30;
     private TextView countdownText;
@@ -78,7 +78,7 @@ public class QuestionActivity extends AppCompatActivity {
     private void displayRandomQuestion() {
         if (questionsPosees.size() >= maxQuestions) {
             // If the user has answered 10 questions, redirect to BienJouerActivity
-            Intent intent = new Intent(QuestionActivity.this, BienJouerActivity.class);
+            Intent intent = new Intent(SurvieActivity.this, BienJouerActivity.class);
             startActivity(intent);
         } else if (!quizzList.isEmpty()) {
             Random random = new Random();
@@ -106,9 +106,9 @@ public class QuestionActivity extends AppCompatActivity {
     private void verifyAnswer(String choix) {
         Intent intent;
         if (randomQuiz.getReponse().equals(choix)) {
-            intent = new Intent(QuestionActivity.this, BonneReponseActivity.class);
+            intent = new Intent(SurvieActivity.this, BonneReponseActivity.class);
         } else {
-            intent = new Intent(QuestionActivity.this, MauvaiseReponseActivity.class);
+            intent = new Intent(SurvieActivity.this, MauvaiseReponseActivity.class);
         }
         startActivityForResult(intent, 1);
     }
